@@ -38,5 +38,4 @@ class Supermarket:
 
             y = customer.current_coor_y
             x = customer.current_coor_x
-            # print(f'{y}   {x}')
             self.frame[y:y+20, x:x+15, :] = customer.image

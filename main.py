@@ -1,40 +1,28 @@
+import numpy as np
+import pandas as pd
+
+import datetime 
 import cv2
 import random
-import numpy as np
-
-import datetime
-from datetime import timedelta  
-
-from random import choices
-
-import pandas as pd
-import matplotlib.pyplot as plt
 
 import warnings
 warnings.filterwarnings("ignore")
 
-import datetime 
-# import preprocessing
+import imageio
 from preprocessing import read_files
-from preprocessing import produce_customer_image_male
+from supermarket_class import Supermarket
+from funcs import move_customers_smooth, Save_Frame
 
 random.seed(4)
-import imageio
-from PIL import Image, ImageDraw, ImageFont
-from customer_class import Customers
-from supermarket_class import Supermarket
-from funcs import move_customers_smooth, move_customers_jump,Save_Frame
-
 
 if __name__ == "__main__":
-
 
     transition_matrix1 = read_files()
 
     supermarket_image = cv2.imread('files/market.png')
-
     doodl = Supermarket(supermarket_image,transition_matrix1)#,customer_image
-    move_style = 'Smooth' #'Jump'#'Smooth'
+
+    move_style = 'Jump' #'Jump'#'Smooth'
 
     if move_style == 'Smooth': 
         minutes = (8-7)*10
@@ -45,7 +33,6 @@ if __name__ == "__main__":
         minutes = (18-8)*6
         num_entry_per_min = 5
         save_every = 50
-
 
     customer_id = 0
 
@@ -84,8 +71,7 @@ if __name__ == "__main__":
             Save_Frame(doodl)
             if cv2.waitKey(5) & 0xFF == ord('q'):  #stops if q is pressed
                 break
-            
-
+        
 
 
         if move_style == 'Smooth' : move_customers_smooth(doodl)

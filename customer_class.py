@@ -1,7 +1,7 @@
 import cv2
 import random
 import numpy as np
-from preprocessing import read_files,produce_customer_image_male
+from preprocessing import produce_customer_image_male
 from random import choices
 
 class Customers:
@@ -33,29 +33,16 @@ class Customers:
         y1 = int(420/self.jump_step)
 
         if aisle == 'entrance':
-
             ty, tx = [630,self.jump_step*random.randint(23, 29)]
-
         if aisle == 'drinks':
-
             ty, tx = [self.jump_step*random.randint(y0, y1), self.jump_step*random.randint(3, 5)]
-
-            # print('there_drinks')
         elif aisle == 'dairy':
-            # print('here_dairy')
-            # ty, tx = [self.jump_step*random.randint(y0, y1), self.jump_step*random.randint(30, 40)]
             ty, tx = [self.jump_step*random.randint(y0, y1), self.jump_step*random.randint(10, 13)]
-
         elif aisle == 'spices':
-            # print('here_spices')
             ty, tx = [self.jump_step*random.randint(y0, y1), self.jump_step*random.randint(18, 21)]
         elif aisle == 'fruit':
-            # print('here_fruit')
             ty, tx = [self.jump_step*random.randint(y0, y1), self.jump_step*random.randint(26, 28)]
         elif aisle == 'checkout':
-            # print('here_checkout')
-            # ty, tx = [555, random.choice([100, 250, 400, 535])]
-            # ty, tx = [550, random.choice([100, 250, 400, 530])]
             ty, tx = [540, random.choice([90, 240, 390, 510])]
 
         return ty, tx

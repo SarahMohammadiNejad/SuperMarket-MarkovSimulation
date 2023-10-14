@@ -1,19 +1,7 @@
-import cv2
-import random
+import pandas as pd
 import numpy as np
 
-import datetime
 from datetime import timedelta  
-
-from random import choices
-
-import pandas as pd
-import matplotlib.pyplot as plt
-
-import warnings
-warnings.filterwarnings("ignore")
-
-import datetime 
 
 def read_files(): 
     df_monday = pd.read_csv('data/monday.csv', sep = ';')
@@ -63,8 +51,6 @@ def read_files():
     #after checkout it is always entrance which is not correct and we need to correct it by hand
     transition_matrix1.loc['checkout', :] = 0
     transition_matrix1.loc['checkout', 'checkout'] = 1
-
-    # print(transition_matrix1)
 
     return transition_matrix1
 
