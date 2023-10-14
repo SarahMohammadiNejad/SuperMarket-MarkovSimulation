@@ -1,6 +1,5 @@
-![font_Jump_f](https://github.com/SarahMohammadiNejad/SuperMarket-MarkovSimulation/assets/137781402/90eb897c-9fa5-40ac-a38a-f7bb4ae313bd)
-
-
+In this oroject we try to simulate the behavior of customers in a supermmarket using Markov simulation. To this end, we use the data from the real behavior of customers and after doing preprocessing, we calculate the transition matrix between the sections of the supermarket. 
+Here is a short movie from the simulation:
 
 ![font_Smooth_f](https://github.com/SarahMohammadiNejad/SuperMarket-MarkovSimulation/assets/137781402/d59b72cc-aca6-43f6-a586-b5262c5924d1)
 
