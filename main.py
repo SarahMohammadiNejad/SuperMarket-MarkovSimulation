@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     transition_matrix1 = read_files()
 
-    supermarket_image = cv2.imread('market.png')
+    supermarket_image = cv2.imread('files/market.png')
 
     doodl = Supermarket(supermarket_image,transition_matrix1)#,customer_image
     move_style = 'Smooth' #'Jump'#'Smooth'
@@ -89,13 +89,13 @@ if __name__ == "__main__":
 
 
         if move_style == 'Smooth' : move_customers_smooth(doodl)
-        if(i%save_every==0): imageio.mimsave(f'font_{move_style}_{i}.gif', doodl.images, duration=200)
+        if((i+1)%save_every==0): imageio.mimsave(f'results/{move_style}_{i+1}.gif', doodl.images, duration=200)
 
         for cm in doodl.custom:
             if (cm.location=='checkout'): 
                 doodl.remove_customer(cm)  
 
-    imageio.mimsave(f'font_{move_style}_f.gif', doodl.images, duration=200)   
+    imageio.mimsave(f'results/{move_style}_f.gif', doodl.images, duration=200)   
     cv2.destroyAllWindows()
 
 
